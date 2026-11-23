@@ -5,7 +5,6 @@ import 'package:arcade_motoru/dinozor.dart';
 import 'package:flutter/material.dart';
 import 'package:studio_core/app/arcade_stage.dart';
 import 'package:studio_core/app/game_api.dart';
-import 'package:studio_core/core/game_rules.dart';
 
 const dinozorId = 'oyun-dinozor-kosusu';
 
@@ -88,7 +87,7 @@ final dinozorConfig = GameConfig(
   rules: dinozorRules,
   buildPlay: (ctx) => ArcadeStage(
     ctx: ctx,
-    create: () => dinozorRules.createSim((ctx.generated as GeneratedLevel).puzzle),
+    create: () => dinozorRules.createSim(ctx.generated.puzzle),
     paint: (c, s, p, t) {
       arcadeLang = ctx.lang;
       paintDino(c, s, p, t);
